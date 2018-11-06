@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 //import update from 'react-addons-update';
 import Header from './components/Header/index';
 import Footer from './components/Footer/index';
-//import MapWrapper from '../MapWrapper/index';
-//import Sidebar from "../Sidebar/index";
+import MapWrapper from './components/MapWrapper/index';
+import Sidebar from "./components/Sidebar/index";
 import styles from './App.css';
 
 class App extends Component {
@@ -16,12 +16,12 @@ class App extends Component {
     }
 
     loadDistricts(){
-        const API = JSON.stringify('https://city-back.herokuapp.com');
-        fetch(`${API}/districts`)
+        fetch(`${process.env.REACT_APP_API}/districts`)
             .then( (response) => {
                 return response.json()
             })
             .then( (json) => {
+                console.log(json);
                 this.setState({
                     districts: json,
                 });
@@ -29,8 +29,7 @@ class App extends Component {
     }
 
     loadDistrict(id){
-        const API = JSON.stringify('https://city-back.herokuapp.com');
-        fetch(`${API}/districts/${id}`)
+        fetch(`${process.env.REACT_APP_API}/districts/${id}`)
             .then( (response) => {
                 return response.json()
             })
@@ -41,9 +40,9 @@ class App extends Component {
             });
     }
 
-    // componentDidMount() {
-    //     this.loadDistricts();
-    // }
+    componentDidMount() {
+        this.loadDistricts();
+    }
 
     onDistrictSelect(id) {
         this.setState({
@@ -63,23 +62,23 @@ class App extends Component {
         });
 
         return (
-            <div className={styles.box}>
-                <div className={`${styles.row} ${styles.header}`}>
+            <div className="box">
+                <div className="row header">
                     <Header/>
                 </div>
-                {/*<div className={`${styles.row} ${styles.content}`}>*/}
-                    {/*<MapWrapper*/}
-                        {/*zones={this.state.districts}*/}
-                        {/*isWide={!this.state.selectedDistrictId}*/}
-                        {/*onDistrictSelect={(id) => this.onDistrictSelect(id)}*/}
-                    {/*/>*/}
-                    {/*<Sidebar*/}
-                        {/*isOpen={this.state.selectedDistrictId}*/}
-                        {/*district={districtsDetails}*/}
-                        {/*onClose={() => this.onSidebarClose()}*/}
-                    {/*/>*/}
-                {/*</div>*/}
-                <div className={`${styles.row} ${styles.footer}`}>
+                <div className="row content">
+                    <MapWrapper
+                        zones={this.state.districts}
+                        isWide={!this.state.selectedDistrictId}
+                        onDistrictSelect={(id) => this.onDistrictSelect(id)}
+                    />
+                    <Sidebar
+                        isOpen={this.state.selectedDistrictId}
+                        district={districtsDetails}
+                        onClose={() => this.onSidebarClose()}
+                    />
+                </div>
+                <div className="row footer">
                     <Footer />
                 </div>
             </div>

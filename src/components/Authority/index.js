@@ -1,6 +1,6 @@
 import React from 'react';
 import {Timeline} from 'react-twitter-widgets'
-import styles from './styles.css';
+import './styles.css';
 
 function Authority(props) {
     const twitter = props.data.media.find((e) => {
@@ -8,9 +8,9 @@ function Authority(props) {
     });
 
     return (
-        <div className={styles.authority}>
-            <p className={styles.name}>{props.data.name}</p>
-            <p className={styles.position}>{props.data.position}</p>
+        <div className="authority">
+            <p className="name">{props.data.name}</p>
+            <p className="position">{props.data.position}</p>
             {
                 !!twitter &&
                 <Timeline
@@ -20,7 +20,7 @@ function Authority(props) {
                     }}
                     options={{
                         username: 'NYCMayorsOffice',
-                        height: TWITTER_IFRAME_HEIGHT,
+                        height: process.env.REACT_APP_TWITTER_IFRAME_HEIGHT,
                         width: '80%',
                         fontSize: twitter.user_name
                     }}

@@ -6,7 +6,9 @@
     "react": "^16.6.0",
     "react-addons-update": "^15.6.2",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.1.1"
+    "react-google-maps": "^9.4.5",
+    "react-scripts": "2.1.1",
+    "react-twitter-widgets": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",

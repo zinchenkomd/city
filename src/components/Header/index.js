@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 function Header(props) {
     return (
-        <h1 className={styles.title}>
+        <h1 className="title">
             Обращения жителей города к властям
         </h1>
     );

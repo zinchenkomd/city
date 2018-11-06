@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 function Footer(props) {
     return (
-        <p className={styles.copyright}>
+        <p className="copyright">
             @ 2018, Smb
         </p>
     );
