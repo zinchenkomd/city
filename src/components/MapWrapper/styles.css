@@ -1,0 +1,11 @@
+.narrow {
+    height: 100%;
+    float: left;
+    width: 66%;
+}
+
+.wide {
+    height: 100%;
+    float: left;
+    width: 100%
+}

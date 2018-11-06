@@ -1,0 +1,23 @@
+.hidden {
+    display: none;
+}
+.wrapper {
+    padding: 10px;
+}
+.visible {
+    display: block;
+    float: right;
+    height: 100%;
+    width: 33%;
+    overflow-y: scroll;
+}
+
+.visible h2 {
+    margin-top: 0;
+}
+
+.close-link {
+    float: right;
+    padding: 0 0 5px 5px;
+    cursor: pointer;
+}
